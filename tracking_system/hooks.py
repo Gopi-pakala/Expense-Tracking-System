@@ -115,6 +115,11 @@ app_license = "MIT"
 # Document Events
 # ---------------
 # Hook on document methods and events
+doc_events = {
+    "Expense": {
+        "on_update": "tracking_system.expense_tracking_system.Workflow.expense_workflow.notify_employee_on_approval"
+    }
+}
 
 # doc_events = {
 # 	"*": {
@@ -131,6 +136,13 @@ app_license = "MIT"
 # 	"all": [
 # 		"tracking_system.tasks.all"
 # 	],
+
+scheduler_events = {
+    "daily": [
+        "tracking_system.expense_tracking_system.scheduled_jobs.pending_approvals.send_pending_approval_reminders"
+    ],
+
+
 # 	"daily": [
 # 		"tracking_system.tasks.daily"
 # 	],
@@ -140,6 +152,11 @@ app_license = "MIT"
 # 	"weekly": [
 # 		"tracking_system.tasks.weekly"
 # 	],
+    "monthly": [
+        "tracking_system.expense_tracking_system.scheduled_jobs.monthly_summary.send_monthly_summary"
+    ]
+}
+
 # 	"monthly": [
 # 		"tracking_system.tasks.monthly"
 # 	],

@@ -1,0 +1,29 @@
+{
+ "cards": [
+  {
+   "card": "Pending Approvals"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Monthly Expenses",
+   "width": "Half"
+  },
+  {
+   "chart": "Top Categories",
+   "width": "Half"
+  }
+ ],
+ "creation": "2025-11-24 11:06:53.600779",
+ "dashboard_name": "Expense Tracking System Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2025-11-24 11:08:51.291304",
+ "modified_by": "Administrator",
+ "module": "Expense Tracking System",
+ "name": "Expense Tracking System Dashboard",
+ "owner": "Administrator"
+}

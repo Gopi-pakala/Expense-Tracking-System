@@ -1,0 +1,33 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.amount > 10000",
+ "creation": "2025-11-24 11:50:58.408415",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Expense",
+ "enabled": 1,
+ "event": "Save",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p>High-Value Expense Alert: \u20b9{{ doc.amount }} by {{ doc.employee }}</p>\n",
+ "message_type": "Markdown",
+ "modified": "2025-11-24 13:17:43.699486",
+ "modified_by": "Administrator",
+ "module": "Expense Tracking System",
+ "name": "High-Value Alerts",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "condition": "doc.amount > 10000 ",
+   "receiver_by_document_field": "owner",
+   "receiver_by_role": "Account Manager"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 1,
+ "sender": "Gopinadh Pakala",
+ "sender_email": "gopinadhpakala3@gmail.com",
+ "subject": "High-Value Expense Alert: \u20b9{{ doc.amount }}"
+}
