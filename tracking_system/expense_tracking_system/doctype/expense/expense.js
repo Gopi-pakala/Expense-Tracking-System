@@ -11,7 +11,7 @@ frappe.ui.form.on('Expense', {
             method: "frappe.client.get_value",
             args: {
                 doctype: "Category",
-                fieldname: "limit_per_transaction",   // ✔ your field
+                fieldname: "limit_per_transaction",
                 filters: { name: frm.doc.expense_category }
             },
             callback(r) {

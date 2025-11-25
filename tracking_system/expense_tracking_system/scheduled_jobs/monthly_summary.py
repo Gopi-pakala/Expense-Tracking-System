@@ -7,7 +7,6 @@ def send_monthly_summary():
     start_date = get_first_day(add_months(today, -1))
     end_date = get_last_day(add_months(today, -1))
 
-    # Fetch approved expenses category-wise
     summary = frappe.db.sql("""
         SELECT
             expense_category,
@@ -17,8 +16,6 @@ def send_monthly_summary():
         AND workflow_state = 'Approved'
         GROUP BY expense_category
     """, (start_date, end_date), as_dict=True)
-
-    # Build summary message
     message = f"<b>Monthly Expense Summary</b><br>"
     message += f"<b>Period:</b> {start_date} to {end_date}<br><br>"
 
@@ -28,7 +25,6 @@ def send_monthly_summary():
         for row in summary:
             message += f"• <b>{row.expense_category}</b>: ₹{row.total_amount}<br>"
 
-    # Get all Accounts Managers
     accounts_managers = frappe.get_all(
         "Has Role",
         filters={"role": "Accounts Manager"},
@@ -40,7 +36,6 @@ def send_monthly_summary():
     if not recipients:
         return
 
-    # Send email
     frappe.sendmail(
         recipients=recipients,
         subject="Monthly Expense Summary Report",

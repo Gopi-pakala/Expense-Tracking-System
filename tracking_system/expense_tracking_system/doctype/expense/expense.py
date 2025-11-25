@@ -12,22 +12,17 @@ class Expense(Document):
         self.check_overdue_and_escalate()
  
     def check_overdue_and_escalate(self):
-        # Only escalate if still in Pending Approval
         if self.workflow_state != "Pending Approval":
             return
  
         if not self.posting_date:
             return
  
-        # Calculate days pending
         days_pending = date_diff(nowdate(), self.posting_date)
  
-        # Escalate if older than 7 days
         if days_pending > 7:
-            # Update workflow_state
             frappe.db.set_value("Expense", self.name, "workflow_state", "Escalated")
  
-            # Add timeline comment
             frappe.get_doc({
                 "doctype": "Comment",
                 "comment_type": "Info",
