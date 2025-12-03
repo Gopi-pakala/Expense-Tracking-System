@@ -38,7 +38,8 @@
   {
    "fieldname": "amount",
    "fieldtype": "Currency",
-   "label": "Amount"
+   "label": "Amount",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_jllf9",
@@ -76,7 +77,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-24 13:56:21.562849",
+ "modified": "2025-11-25 10:57:44.631505",
  "modified_by": "Administrator",
  "module": "Expense Tracking System",
  "name": "Expense",

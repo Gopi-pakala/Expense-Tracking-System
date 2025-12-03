@@ -132,16 +132,22 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
+
+# scheduler_events = {
+#     "cron": {
+#         "0 10 * * *": [
+#             "tracking_system.expense_tracking_system.scheduled_jobs.pending_approvals.send_pending_approvals_daily"
+#         ]
+#     }
+# }
+
+
+
+
 # scheduler_events = {
 # 	"all": [
 # 		"tracking_system.tasks.all"
 # 	],
-
-scheduler_events = {
-    "daily": [
-        "tracking_system.expense_tracking_system.scheduled_jobs.pending_approvals.send_pending_approval_reminders"
-    ],
-
 
 # 	"daily": [
 # 		"tracking_system.tasks.daily"
@@ -152,15 +158,23 @@ scheduler_events = {
 # 	"weekly": [
 # 		"tracking_system.tasks.weekly"
 # 	],
-    "monthly": [
-        "tracking_system.expense_tracking_system.scheduled_jobs.monthly_summary.send_monthly_summary"
-    ]
-}
 
 # 	"monthly": [
 # 		"tracking_system.tasks.monthly"
 # 	],
 # }
+
+scheduler_events = {
+    "cron": {
+        "0 10 1 * *": [
+            "tracking_system.expense_tracking_system.scheduled_jobs.pending_approvals.send_monthly_expense_summary"
+        ],
+        "0 10 * * *": [
+            "tracking_system.expense_tracking_system.scheduled_jobs.pending_approvals.send_pending_approvals_daily"
+        ]
+    }
+}
+
 
 # Testing
 # -------
